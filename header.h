@@ -6,7 +6,7 @@
 /*   By: videsvau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/17 05:20:37 by videsvau          #+#    #+#             */
-/*   Updated: 2017/09/04 14:11:57 by videsvau         ###   ########.fr       */
+/*   Updated: 2017/09/04 16:16:20 by videsvau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,6 @@ void				ft_strcolor_av(char *file, struct stat st, int flag);
 void				swap_av(char ***av, int *i);
 int					must_swap(char *str1, char *str2);
 void				reverse_av(char ***av);
-void				reset_int_tab(int *j);
 char				*av_path(char *file);
 
 #endif

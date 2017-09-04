@@ -6,7 +6,7 @@
 /*   By: videsvau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/25 07:17:01 by videsvau          #+#    #+#             */
-/*   Updated: 2017/09/04 14:32:30 by videsvau         ###   ########.fr       */
+/*   Updated: 2017/09/04 17:35:38 by videsvau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,12 +47,12 @@ void		print_list(t_ls *ls)
 	ls->dir = start;
 	print_list_dir(ls, start);
 	free(ls->path);
-	free_list(ls->dir);
 }
 
 void		print_list_dir(t_ls *ls, t_dir *start)
 {
 	t_ls	ls2;
+	t_dir	*tmp;
 
 	while (start && ls->flag & R_UP)
 	{
@@ -61,7 +61,6 @@ void		print_list_dir(t_ls *ls, t_dir *start)
 			if (valid_dir(start->file))
 			{
 				ft_putchar('\n');
-				ls2.dir = malloc(sizeof(t_list));
 				ls2.dir = NULL;
 				ls2.flag = ls->flag;
 				ls2.path = full_path_rec(ls->path, start->file);
@@ -69,6 +68,9 @@ void		print_list_dir(t_ls *ls, t_dir *start)
 				print_list(&ls2);
 			}
 		}
+		tmp = start;
 		start = start->next;
+		free(tmp->file);
+		free(tmp);
 	}
 }

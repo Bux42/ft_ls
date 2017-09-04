@@ -6,7 +6,7 @@
 /*   By: videsvau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/17 06:02:11 by videsvau          #+#    #+#             */
-/*   Updated: 2017/09/03 21:25:05 by videsvau         ###   ########.fr       */
+/*   Updated: 2017/09/04 16:33:11 by videsvau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ void		fill_list(t_ls *ls)
 	}
 	else
 		custom_perror(ls->path);
+	ft_putendl(ls->path);
 	if (ls->dir && ls->flag & L_FLAG)
 		total(ls->total);
 }

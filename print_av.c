@@ -6,20 +6,11 @@
 /*   By: videsvau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/29 03:58:01 by videsvau          #+#    #+#             */
-/*   Updated: 2017/09/03 22:22:23 by videsvau         ###   ########.fr       */
+/*   Updated: 2017/09/04 17:16:21 by videsvau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
-
-void		reset_int_tab(int *j)
-{
-	j[0] = 0;
-	j[1] = 0;
-	j[2] = 0;
-	j[3] = 0;
-	j[4] = 0;
-}
 
 int			*count_spaces_av(char **av)
 {
@@ -30,6 +21,11 @@ int			*count_spaces_av(char **av)
 	i = -1;
 	if (!(j = (int*)malloc(sizeof(int) * 5)))
 		return (NULL);
+	j[0] = 0;
+	j[1] = 0;
+	j[2] = 0;
+	j[3] = 0;
+	j[4] = 0;
 	while (av[++i])
 		if ((lstat(av[i], &st)) > -1)
 			update_int_tab(j, st);
@@ -78,15 +74,14 @@ void		print_av_dir(char **av, int flag)
 	int			i;
 
 	i = -1;
-	ls = malloc(sizeof(t_ls));
+	if (!(ls = (t_ls*)malloc(sizeof(t_ls))))
+		return ;
 	while (av[++i])
 	{
 		if ((lstat(av[i], &st)) > -1)
 		{
 			if (S_ISDIR(st.st_mode))
 			{
-				if (av[1])
-					print_dir_name(av[i]);
 				ls->dir = NULL;
 				ls->flag = flag;
 				ls->path = av_path(av[i]);

@@ -6,7 +6,7 @@
 /*   By: videsvau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/25 07:28:03 by videsvau          #+#    #+#             */
-/*   Updated: 2017/09/03 19:32:19 by videsvau         ###   ########.fr       */
+/*   Updated: 2017/09/04 16:15:29 by videsvau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,7 +111,11 @@ int			*count_spaces(t_ls *ls)
 	tmp = ls->dir;
 	if (!(j = (int*)malloc(sizeof(int) * 5)))
 		return (NULL);
-	reset_int_tab(j);
+	j[0] = 0;
+	j[1] = 0;
+	j[2] = 0;
+	j[3] = 0;
+	j[4] = 0;
 	while (tmp)
 	{
 		update_int_tab(j, tmp->st);

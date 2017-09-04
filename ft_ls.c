@@ -6,7 +6,7 @@
 /*   By: videsvau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/17 05:20:03 by videsvau          #+#    #+#             */
-/*   Updated: 2017/09/04 14:31:14 by videsvau         ###   ########.fr       */
+/*   Updated: 2017/09/04 18:19:07 by videsvau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ int			main(int ac, char **av)
 
 	if (ac && (ret = get_flags(av, &ls)) != -1)
 	{
-		ls.dir = (t_dir*)malloc(sizeof(t_dir));
 		ls.dir = NULL;
 		ls.path = ft_strdup("./");
 		if (ret == 0)
