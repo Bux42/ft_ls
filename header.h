@@ -6,7 +6,7 @@
 /*   By: videsvau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/17 05:20:37 by videsvau          #+#    #+#             */
-/*   Updated: 2017/09/03 21:15:53 by videsvau         ###   ########.fr       */
+/*   Updated: 2017/09/04 14:11:57 by videsvau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ typedef struct		s_ls
 
 void				print_list(t_ls *ls);
 void				print_list_dir(t_ls *ls, t_dir *start);
+void				free_list(t_dir *list);
 int					valid_dir(char *path);
 int					*count_spaces(t_ls *ls);
 void				update_int_tab(int *j, struct stat st);

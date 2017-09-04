@@ -6,7 +6,7 @@
 /*   By: videsvau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/25 07:17:01 by videsvau          #+#    #+#             */
-/*   Updated: 2017/09/03 19:23:12 by videsvau         ###   ########.fr       */
+/*   Updated: 2017/09/04 14:32:30 by videsvau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ void		print_list(t_ls *ls)
 	ls->dir = start;
 	print_list_dir(ls, start);
 	free(ls->path);
+	free_list(ls->dir);
 }
 
 void		print_list_dir(t_ls *ls, t_dir *start)
@@ -68,9 +69,6 @@ void		print_list_dir(t_ls *ls, t_dir *start)
 				print_list(&ls2);
 			}
 		}
-		ls->dir = start;
 		start = start->next;
-		free(ls->dir->file);
-		free(ls->dir);
 	}
 }

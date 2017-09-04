@@ -6,11 +6,21 @@
 /*   By: videsvau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/17 05:20:03 by videsvau          #+#    #+#             */
-/*   Updated: 2017/09/03 19:23:01 by videsvau         ###   ########.fr       */
+/*   Updated: 2017/09/04 14:31:14 by videsvau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
+
+void		free_list(t_dir *list)
+{
+	if (list)
+	{
+		free_list(list->next);
+		free(list->file);
+		free(list);
+	}
+}
 
 int			main(int ac, char **av)
 {
@@ -31,6 +41,11 @@ int			main(int ac, char **av)
 		{
 			sort_av(av, ls.flag);
 			print_av(av, ls.flag);
+			ls.i = -1;
+			while (av[++ls.i])
+				free(av[ls.i]);
+			if (ls.path)
+				free(ls.path);
 		}
 	}
 	return (0);

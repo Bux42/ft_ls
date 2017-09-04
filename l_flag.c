@@ -6,7 +6,7 @@
 /*   By: videsvau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/25 07:54:31 by videsvau          #+#    #+#             */
-/*   Updated: 2017/09/03 19:32:20 by videsvau         ###   ########.fr       */
+/*   Updated: 2017/09/03 22:09:43 by videsvau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@ void		update_int_tab(int *j, struct stat st)
 	if ((gr = getgrgid(st.st_gid)))
 		if (j[4] < (int)ft_strlen(gr->gr_name))
 			j[4] = (int)ft_strlen(gr->gr_name);
-	if (j[0] < st.st_nlink)
-		j[0] = st.st_nlink;
-	if (j[1] < st.st_size)
-		j[1] = st.st_size;
+	if (j[0] < (int)st.st_nlink)
+		j[0] = (int)st.st_nlink;
+	if (j[1] < (int)st.st_size)
+		j[1] = (int)st.st_size;
 	if (j[2] < day_len(ctime(&st.st_mtime)))
 		j[2] = day_len(ctime(&st.st_mtime));
 }
