@@ -6,7 +6,7 @@
 /*   By: videsvau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/25 07:54:31 by videsvau          #+#    #+#             */
-/*   Updated: 2017/09/11 16:30:47 by videsvau         ###   ########.fr       */
+/*   Updated: 2017/09/11 19:52:34 by videsvau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,8 @@ char		file_type(struct stat st)
 		return ('m');
 	if (S_ISSOCK(st.st_mode))
 		return ('s');
+	if (S_ISCHR(st.st_mode))
+		return ('c');
 	return ('-');
 }
 
